@@ -1,0 +1,63 @@
+// Criterio: Componente de navegación con buscador
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext.js';
+import useProducts from '../hooks/useProducts';
+import '../styles/components/Navbar.css';
+
+const Navbar = () => {
+  const { getCartCount } = useCart();
+  const { searchProducts } = useProducts();
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    searchProducts(searchValue);
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navbar__container">
+        {/* Logo */}
+        <Link to="/" className="navbar__logo">
+          TechStore
+        </Link>
+
+        {/* Buscador - Criterio: Funcionalidad de búsqueda */}
+        <form className="navbar__search" onSubmit={handleSearch}>
+          <input
+            type="text"
+            className="navbar__search-input"
+            placeholder="Buscar productos..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <button type="submit" className="navbar__search-button">
+            🔍
+          </button>
+        </form>
+
+        {/* Navegación */}
+        <ul className="navbar__menu">
+          <li className="navbar__item">
+            <Link to="/" className="navbar__link">Inicio</Link>
+          </li>
+          <li className="navbar__item">
+            <Link to="/category/Electrónica" className="navbar__link">Electrónica</Link>
+          </li>
+          <li className="navbar__item">
+            <Link to="/category/Audio" className="navbar__link">Audio</Link>
+          </li>
+          <li className="navbar__item">
+            <Link to="/cart" className="navbar__link navbar__cart-link">
+              🛒 Carrito
+              <span className="navbar__cart-count">{getCartCount()}</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

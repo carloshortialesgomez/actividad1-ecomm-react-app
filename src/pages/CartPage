@@ -1,0 +1,68 @@
+// Criterio: Página del carrito con resumen de compra
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext.js';
+import CartItem from '../components/CartItem';
+import '../styles/pages/CartPage.css';
+
+const CartPage = () => {
+  const { cartItems, getCartTotal, clearCart } = useCart();
+
+  if (cartItems.length === 0) {
+    return (
+      <div className="cart-page cart-page--empty">
+        <h2>Tu carrito está vacío</h2>
+        <Link to="/" className="cart-page__continue-shopping">
+          Continuar comprando
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="cart-page">
+      <h1 className="cart-page__title">Mi Carrito</h1>
+      
+      <div className="cart-page__content">
+        <div className="cart-page__items">
+          {cartItems.map(item => (
+            <CartItem key={item.id} item={item} />
+          ))}
+        </div>
+        
+        <div className="cart-page__summary">
+          <h3>Resumen del Pedido</h3>
+          
+          <div className="cart-page__summary-details">
+            <div className="cart-page__summary-row">
+              <span>Productos ({cartItems.length})</span>
+              <span>${getCartTotal().toFixed(2)}</span>
+            </div>
+            
+            <div className="cart-page__summary-row">
+              <span>Envío</span>
+              <span>$0.00</span>
+            </div>
+            
+            <div className="cart-page__summary-row cart-page__summary-row--total">
+              <span>Total</span>
+              <span>${getCartTotal().toFixed(2)}</span>
+            </div>
+          </div>
+          
+          <div className="cart-page__actions">
+            <button onClick={clearCart} className="cart-page__clear">
+              Vaciar Carrito
+            </button>
+            
+            <Link to="/checkout" className="cart-page__checkout">
+              Proceder al Pago
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CartPage;

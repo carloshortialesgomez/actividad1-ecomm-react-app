@@ -1,0 +1,28 @@
+// Criterio: Página principal que muestra todos los productos
+import React from 'react';
+import ProductCard from '../components/ProductCard';
+import useProducts from '../hooks/useProducts';
+import '../styles/pages/HomePage.css';
+
+const HomePage = () => {
+  const { products, loading } = useProducts();
+
+  if (loading) {
+    return <div className="loading">Cargando productos...</div>;
+  }
+
+  return (
+    <div className="home-page">
+      <h1 className="home-page__title">Productos Destacados</h1>
+      
+      <div className="home-page__products">
+        {/* Criterio: Renderizado de lista de productos */}
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;

@@ -1,0 +1,126 @@
+/* Criterio: Estilos BEM para página del carrito */
+.cart-page {
+  padding: 2rem 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-page--empty {
+  text-align: center;
+  padding: 4rem 20px;
+}
+
+.cart-page--empty h2 {
+  color: var(--gray-dark);
+  margin-bottom: 2rem;
+}
+
+.cart-page__continue-shopping {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.cart-page__continue-shopping:hover {
+  background-color: #2980b9;
+}
+
+.cart-page__title {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+}
+
+.cart-page__content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+}
+
+.cart-page__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-page__summary {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.cart-page__summary h3 {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.cart-page__summary-details {
+  margin-bottom: 1.5rem;
+}
+
+.cart-page__summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: var(--gray-dark);
+}
+
+.cart-page__summary-row--total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--gray-light);
+}
+
+.cart-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-page__clear {
+  padding: 12px;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.cart-page__clear:hover {
+  background-color: var(--gray-light);
+}
+
+.cart-page__checkout {
+  padding: 12px;
+  background-color: var(--success-color);
+  color: white;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.cart-page__checkout:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 768px) {
+  .cart-page__content {
+    grid-template-columns: 1fr;
+  }
+  
+  .cart-page__summary {
+    position: static;
+  }
+}

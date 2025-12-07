@@ -1,0 +1,166 @@
+/* Criterio: Estilos BEM para página de checkout */
+.checkout-page {
+  padding: 2rem 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-page--empty {
+  text-align: center;
+  padding: 4rem 20px;
+}
+
+.checkout-page--empty h2 {
+  color: var(--gray-dark);
+  margin-bottom: 2rem;
+}
+
+.checkout-page__continue {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.checkout-page__continue:hover {
+  background-color: #2980b9;
+}
+
+.checkout-page__title {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.checkout-page__content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 3rem;
+}
+
+.checkout-page__form {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.checkout-page__section {
+  margin-bottom: 2rem;
+}
+
+.checkout-page__section h3 {
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--light-color);
+}
+
+.checkout-page__form-group {
+  margin-bottom: 1.5rem;
+}
+
+.checkout-page__form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.checkout-page__form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.checkout-page__form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.checkout-page__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkout-page__submit {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--success-color);
+  color: white;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.checkout-page__submit:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}
+
+.checkout-page__summary {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.checkout-page__summary h3 {
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--light-color);
+}
+
+.checkout-page__order-items {
+  margin-bottom: 2rem;
+}
+
+.checkout-page__order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.checkout-page__order-item:last-child {
+  border-bottom: none;
+}
+
+.checkout-page__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  padding: 1rem 0;
+  border-top: 2px solid var(--light-color);
+}
+
+@media (max-width: 768px) {
+  .checkout-page__content {
+    grid-template-columns: 1fr;
+  }
+  
+  .checkout-page__summary {
+    position: static;
+    order: -1;
+  }
+  
+  .checkout-page__form-row {
+    grid-template-columns: 1fr;
+  }
+}

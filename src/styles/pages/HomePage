@@ -1,0 +1,37 @@
+/* Criterio: Estilos BEM para página de inicio */
+.home-page {
+  padding: 2rem 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-page__title {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.home-page__products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: var(--gray-dark);
+}
+
+@media (max-width: 768px) {
+  .home-page__products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .home-page__title {
+    font-size: 1.5rem;
+  }
+}

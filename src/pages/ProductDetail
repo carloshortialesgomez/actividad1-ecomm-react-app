@@ -1,0 +1,107 @@
+// Criterio: Página de detalle de producto
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext.js';
+import useProducts from '../hooks/useProducts';
+import '../styles/pages/ProductDetail.css';
+
+const ProductDetail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { getProductById } = useProducts();
+  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  
+  const product = getProductById(id);
+  
+  if (!product) {
+    return (
+      <div className="product-detail product-detail--not-found">
+        <h2>Producto no encontrado</h2>
+        <button onClick={() => navigate('/')} className="product-detail__back">
+          Volver a la tienda
+        </button>
+      </div>
+    );
+  }
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    alert(`¡${product.name} agregado al carrito!`);
+  };
+
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value > 0 && value <= 10) {
+      setQuantity(value);
+    }
+  };
+
+  return (
+    <div className="product-detail">
+      <button onClick={() => navigate(-1)} className="product-detail__back-button">
+        ← Volver
+      </button>
+      
+      <div className="product-detail__content">
+        <div className="product-detail__image-container">
+          <img 
+            src={product.image || '/images/placeholder.jpg'} 
+            alt={product.name}
+            className="product-detail__image"
+          />
+        </div>
+        
+        <div className="product-detail__info">
+          <span className="product-detail__category">{product.category}</span>
+          <h1 className="product-detail__title">{product.name}</h1>
+          <p className="product-detail__sku">SKU: {product.sku}</p>
+          
+          <div className="product-detail__price">
+            ${product.price.toFixed(2)}
+          </div>
+          
+          <p className="product-detail__description">
+            {product.description}
+          </p>
+          
+          <div className="product-detail__actions">
+            <div className="product-detail__quantity">
+              <label htmlFor="quantity" className="product-detail__quantity-label">
+                Cantidad:
+              </label>
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                max="10"
+                value={quantity}
+                onChange={handleQuantityChange}
+                className="product-detail__quantity-input"
+              />
+            </div>
+            
+            <button 
+              onClick={handleAddToCart}
+              className="product-detail__add-to-cart"
+            >
+              Añadir al Carrito (${(product.price * quantity).toFixed(2)})
+            </button>
+          </div>
+          
+          <div className="product-detail__features">
+            <h3>Características:</h3>
+            <ul>
+              <li>Envío gratuito en pedidos mayores a $500</li>
+              <li>Garantía de 1 año</li>
+              <li>Devolución en 30 días</li>
+              <li>Soporte técnico 24/7</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetail;

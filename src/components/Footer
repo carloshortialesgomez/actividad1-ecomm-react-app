@@ -1,0 +1,40 @@
+// Criterio: Componente Footer reutilizable
+import React from 'react';
+import '../styles/components/Footer.css';
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__section">
+          <h3 className="footer__title">TechStore</h3>
+          <p className="footer__description">
+            Tu tienda de tecnología confiable con los mejores productos.
+          </p>
+        </div>
+        
+        <div className="footer__section">
+          <h4 className="footer__subtitle">Categorías</h4>
+          <ul className="footer__list">
+            <li className="footer__item">Electrónica</li>
+            <li className="footer__item">Audio</li>
+            <li className="footer__item">Computación</li>
+            <li className="footer__item">Wearables</li>
+          </ul>
+        </div>
+        
+        <div className="footer__section">
+          <h4 className="footer__subtitle">Contacto</h4>
+          <p className="footer__contact">contacto@techstore.com</p>
+          <p className="footer__contact">+1 234 567 8900</p>
+        </div>
+      </div>
+      
+      <div className="footer__bottom">
+        <p>© 2024 TechStore. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

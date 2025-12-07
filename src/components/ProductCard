@@ -1,0 +1,50 @@
+// Criterio: Componente de tarjeta de producto reutilizable
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext.js';
+import '../styles/components/ProductCard.css';
+
+const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
+  return (
+    <div className="product-card">
+      <div className="product-card__image-container">
+        <img 
+          src={product.image || '/images/placeholder.jpg'} 
+          alt={product.name}
+          className="product-card__image"
+        />
+      </div>
+      
+      <div className="product-card__content">
+        <span className="product-card__category">{product.category}</span>
+        <h3 className="product-card__title">{product.name}</h3>
+        <p className="product-card__description">{product.description}</p>
+        <div className="product-card__sku">SKU: {product.sku}</div>
+        
+        <div className="product-card__footer">
+          <span className="product-card__price">${product.price.toFixed(2)}</span>
+          
+          <div className="product-card__actions">
+            <Link to={`/product/${product.id}`} className="product-card__details">
+              Ver detalles
+            </Link>
+            <button 
+              onClick={handleAddToCart}
+              className="product-card__add-to-cart"
+            >
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;
