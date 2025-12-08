@@ -1,0 +1,59 @@
+# Archivo robots.txt para TechStore Ecommerce
+# Generado automáticamente - No modificar manualmente
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /checkout/confirmation
+
+# Sitemap
+Sitemap: https://actividad1-ecomm-react-app.vercel.app/sitemap.xml
+
+# Crawl delay (segundos entre requests)
+Crawl-delay: 1
+
+# User agents específicos
+User-agent: Googlebot
+Allow: /
+Disallow: /checkout/payment
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 3
+
+# Bloquear bots maliciosos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+# Reglas específicas para archivos
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+# No seguir enlaces específicos
+NoFollow: /cart
+NoFollow: /checkout
+
+# Comentarios para desarrolladores
+# Este archivo permite a todos los bots indexar el sitio
+# excepto las áreas de administración y API
+# Última actualización: $(date)

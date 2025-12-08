@@ -1,0 +1,61 @@
+{
+  "short_name": "TechStore",
+  "name": "TechStore Ecommerce React App",
+  "description": "Aplicación de ecommerce desarrollada con React. Proyecto académico con 8 productos, carrito funcional y buscador.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#3498db",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-MX",
+  "dir": "ltr",
+  "categories": ["shopping", "business", "productivity"],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Vista principal de TechStore"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver carrito",
+      "short_name": "Carrito",
+      "description": "Ver productos en el carrito",
+      "url": "/cart",
+      "icons": [{ "src": "cart-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Productos",
+      "short_name": "Tienda",
+      "description": "Explorar todos los productos",
+      "url": "/",
+      "icons": [{ "src": "shop-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e84b6d8f-213d-4e57-bc31-4b7f42f5d2e1"
+}
