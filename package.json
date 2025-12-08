@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "ecommerce-app",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +9,7 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
+    "prebuild": "chmod +x node_modules/.bin/react-scripts 2>/dev/null || true",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
