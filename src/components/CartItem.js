@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useCart } from '../context/CartContext';
 
 const CartItem = ({ item }) => {

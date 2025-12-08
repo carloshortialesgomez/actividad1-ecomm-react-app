@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import useProducts from '../hooks/useProducts';

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import useProducts from '../hooks/useProducts';
